@@ -14,7 +14,6 @@ node_map = {}
 for node, left, right in matches:
     node_map[node] = (left, right)
 
-# # Optimization to create a flat map based on the instructions
 flat_node_map = {}
 flat_step_size = len(instructions)
 for key in node_map.keys():
