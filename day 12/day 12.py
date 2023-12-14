@@ -20,13 +20,13 @@ def get_validation_masks(broken_record):
 
 @functools.cache
 def get_damaged_spring_arrangements(groups, length, mask_not_op, mask_dmg):
-    min_shift = sum(groups) + len(groups) - 1
+    min_shift = sum(groups[1:]) + len(groups) - 2
     result = 0
-    for i in range(min_shift, length+1): 
-        mask = 2**groups[0]-1 << i - groups[0]
-        mask_dmg_temp = mask_dmg & (2**(length-i+groups[0]+1)-1 << i-groups[0]-1) if len(groups) > 1 else mask_dmg & 2**length-1
+    for i in range(min_shift, length - groups[0]): 
+        mask = 2**groups[0]-1 << i+1
+        mask_dmg_temp = mask_dmg & (2**(length-i)-1 << i) if len(groups) > 1 else mask_dmg & 2**length-1
         if mask & mask_not_op == mask and mask_dmg_temp & mask == mask_dmg_temp:
-            if len(groups) > 1: result += get_damaged_spring_arrangements(tuple(groups[1:]), i-groups[0]-1, mask_not_op, mask_dmg)
+            if len(groups) > 1: result += get_damaged_spring_arrangements(tuple(groups[1:]), i, mask_not_op, mask_dmg)
             else: result += 1
     return result
 
