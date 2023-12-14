@@ -44,9 +44,6 @@ def get_smudged_reflection_value(pattern):
             new_row, new_col = get_reflection_value(pattern_copy, row, col)
             if new_row != 0 or new_col != 0:
                 return new_row, new_col
-    print(pattern+"\n\n")
-    return 0, 0
-
 
 #
 # Process input
