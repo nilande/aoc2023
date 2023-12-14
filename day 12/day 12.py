@@ -1,4 +1,4 @@
-import re, time, functools
+import time, functools
 
 def process_record(row):
     cols = row.split()
