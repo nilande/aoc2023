@@ -1,7 +1,6 @@
 def get_hash(string):
     hash = 0
-    for char in string:
-        hash = (hash + ord(char)) * 17 % 256
+    for char in string: hash = (hash + ord(char)) * 17 % 256
     return hash
 
 def insert_lens(box, label, focal_length):
