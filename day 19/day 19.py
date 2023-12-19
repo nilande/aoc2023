@@ -17,7 +17,7 @@ def get_workflows(workflows_raw: list):
 
     return workflows
 
-def is_part_rating_accepted(part_rating, workflows):
+def is_part_rating_accepted(part_rating: dict, workflows: dict):
     cur_workflow = 'in'
     # debug_workflow_steps = []
     exit_steps = {'A', 'R'}
@@ -101,13 +101,13 @@ def get_accepted_part_rating_combinations(part_rating_span: dict, workflows: dic
 #
 with open('day 19/input.txt', 'r') as file:
     content = file.read()
+workflows_raw, part_ratings_raw = content.split('\n\n')
+workflows = get_workflows(workflows_raw.splitlines())
 
 #
 # Puzzle 1
 #
 start_time = time.time()
-workflows_raw, part_ratings_raw = content.split('\n\n')
-workflows = get_workflows(workflows_raw.splitlines())
 print(f'Puzzle 1 solution is: {get_accepted_part_ratings_sum(part_ratings_raw.splitlines(), workflows)} (in {time.time() - start_time:.3f} seconds)')
 
 #
