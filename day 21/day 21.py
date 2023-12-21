@@ -85,4 +85,4 @@ for i in range(7, n_across + 1, 2):
     n_across_diamond_count[i] = n_across_diamond_count[i-2] + derivative[i]
 
 # Calculate the final answer
-print(f'Puzzle 2 solution is: {n_across_diamond_count[i]}')
+print(f'Puzzle 2 solution is: {n_across_diamond_count[n_across]}')
